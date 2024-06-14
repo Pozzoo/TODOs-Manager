@@ -1,4 +1,5 @@
 import '../css/TaskItem.css'
+import CheckmarkUnchecked from '../assets/circle-stroke-rounded.svg?react'
 import PropTypes from "prop-types";
 import {useState} from "react";
 
@@ -16,7 +17,7 @@ const TaskItem = ({task}) => {
     return(
         <div className="taskItem" onClick={handleClick}>
             <div className="firstRow">
-                <img src="../../circle-stroke-rounded.svg" alt="unchecked checkmark" className="checkmark" />
+                <CheckmarkUnchecked className="checkmark" />
                 <h3 className="taskTitle">{model.title}</h3>
             </div>
 

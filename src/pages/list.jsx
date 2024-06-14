@@ -1,4 +1,5 @@
 import '../css/list.css';
+import ArrowLeft from '../assets/arrow-left.svg?react'
 import {useLocation, useNavigate} from "react-router-dom";
 import NewTask from "../components/NewTask.jsx";
 import TaskItem from "../components/TaskItem.jsx";
@@ -31,7 +32,7 @@ const List = () => {
     return (
         <div className="app">
             <div className="topBar">
-                <img src="../../arrow-left.svg" alt="back arrow" onClick={handleArrowClick} />
+                <ArrowLeft className="arrowLeft" onClick={handleArrowClick}/>
                 <h2>{model.title}</h2>
             </div>
             <div className="tasks">

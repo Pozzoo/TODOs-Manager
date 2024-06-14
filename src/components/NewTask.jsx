@@ -1,4 +1,5 @@
 import '../css/NewTask.css'
+import Calendar from '../assets/calendar.svg?react';
 import {TaskModel} from "../models/task-model.jsx";
 import {useState} from "react";
 import PropTypes from "prop-types";
@@ -39,7 +40,7 @@ const NewTask = ({ onAddTask }) => {
             <div className="buttons">
                 <button className="deadlineButton">
                     <div>
-                        <img src="../../calendar.svg" alt="calendar"/>
+                        <Calendar className="calendar"/>
                         <p>Deadline</p>
                     </div>
                 </button>

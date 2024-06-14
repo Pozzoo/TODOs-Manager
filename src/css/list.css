@@ -3,7 +3,7 @@
     display: flex;
 }
 
-.topBar img {
+.topBar .arrowLeft {
     height: 36px;
     width: 36px;
     float: left;
@@ -11,7 +11,7 @@
     margin-top: 20px;
 }
 
-.topBar img:hover {
+.topBar .arrowLeft:hover {
     cursor: pointer;
 }
 

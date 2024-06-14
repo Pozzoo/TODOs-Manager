@@ -53,7 +53,7 @@
     align-items: center;
 }
 
-.deadlineButton div img {
+.deadlineButton div .calendar {
     height: 15px;
 }
 
