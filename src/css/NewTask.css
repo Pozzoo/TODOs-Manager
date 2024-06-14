@@ -1,0 +1,71 @@
+* {
+    font-family: "JetBrains Mono", monospace;
+}
+
+.newTask {
+    border: 1px solid #656763;
+    border-radius: 15px;
+    max-width: 900px;
+    min-width: 400px;
+    max-height: 90px;
+    min-height: 90px;
+}
+
+.newTask .inputs {
+    margin: 9px 0 0 9px;
+}
+
+.newTask .inputs input {
+    border: none;
+    background-color: transparent;
+    color: #656763;
+    border-radius: 5px;
+    width: 96%;
+}
+
+.inputs input::placeholder {
+    color: #656763;
+    opacity: 1;
+}
+
+.newTask .newTaskTitle {
+    font-size: 16px;
+}
+
+.newTask .buttons {
+    margin: 0 5px;
+    display: flex;
+    border: none;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.newTask .buttons .deadlineButton {
+    background-color: transparent;
+    color: #656763;
+    padding: 0;
+    margin: 5px;
+}
+
+.deadlineButton div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deadlineButton div img {
+    height: 15px;
+}
+
+.deadlineButton div p {
+    margin: 0;
+    text-align: center;
+}
+
+.buttons .addButton {
+    margin: 5px;
+    padding: 2px 15px;
+    height: 24px;
+    background-color: #656763;
+    color: #12140F;
+}

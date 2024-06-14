@@ -1,0 +1,26 @@
+.taskItem {
+    max-width: 900px;
+    min-width: 400px;
+    border-bottom: 1px solid #656763;
+    margin-bottom: 5px;
+}
+
+.taskItem .firstRow {
+    display: flex;
+    align-items: center;
+}
+
+.taskItem h3 {
+    margin: 5px;
+}
+
+.taskItem img {
+    height: 33px;
+    width: 33px;
+    stroke-width: 1px;
+}
+
+.taskItem .invisible {
+    height: 0;
+    display: none;
+}

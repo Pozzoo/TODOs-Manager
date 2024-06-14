@@ -1,0 +1,21 @@
+.topBar {
+    width: 100%;
+    display: flex;
+}
+
+.topBar img {
+    height: 36px;
+    width: 36px;
+    float: left;
+    position: absolute;
+    margin-top: 20px;
+}
+
+.topBar img:hover {
+    cursor: pointer;
+}
+
+.topBar h2 {
+    text-align: center;
+    width: 100%;
+}
