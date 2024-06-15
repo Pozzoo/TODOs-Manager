@@ -4,5 +4,6 @@ export function getFromDB() {
 }
 
 export function saveToDB(lists) {
+    if (!lists) return;
     localStorage.setItem("TODOs LISTs", JSON.stringify(lists));
 }

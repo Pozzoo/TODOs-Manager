@@ -68,7 +68,7 @@ const ListItem = ({item, onDeleteList, onTitleChange, initialTitle}) => {
 }
 
 ListItem.propTypes = {
-    item: PropTypes.instanceOf(ListModel).isRequired,
+    item: PropTypes.object.isRequired,
     onDeleteList: PropTypes.func.isRequired,
     onTitleChange: PropTypes.func.isRequired,
     initialTitle: PropTypes.string.isRequired
