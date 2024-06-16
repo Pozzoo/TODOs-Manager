@@ -1,16 +1,19 @@
 import '../css/ListItem.css'
 import {useNavigate} from "react-router-dom";
 import PropTypes from "prop-types";
-import {ListModel} from "../models/list-model.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-const ListItem = ({item, onDeleteList, onTitleChange, initialTitle}) => {
+const ListItem = ({item, onDeleteList, onTitleChange}) => {
 
     const model = item;
     const navigate = useNavigate();
 
     const [isEditing, setIsEditing] = useState(false);
-    const [title, setTitle] = useState(initialTitle);
+    const [title, setTitle] = useState(model.title);
+
+    useEffect(() => {
+        setTitle(model.title);
+    }, [model.title]);
 
     const handleInputChange = (e) => {
         setTitle(e.target.value);
@@ -43,7 +46,7 @@ const ListItem = ({item, onDeleteList, onTitleChange, initialTitle}) => {
     }
 
     return(
-        <div className="list" onClick={handleClick} onContextMenu={handleAuxClick}>
+        <div className="list" onClick={handleClick} onContextMenu={handleAuxClick} >
             {isEditing ? (
                 <input
                 type="text"
@@ -71,7 +74,6 @@ ListItem.propTypes = {
     item: PropTypes.object.isRequired,
     onDeleteList: PropTypes.func.isRequired,
     onTitleChange: PropTypes.func.isRequired,
-    initialTitle: PropTypes.string.isRequired
 }
 
 export default ListItem;
