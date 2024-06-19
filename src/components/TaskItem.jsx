@@ -43,7 +43,6 @@ const TaskItem = ({task, handleTaskCompleted}) => {
                 <p className="taskDescription invisible"></p>
             )}
         </div>
-
     );
 }
 

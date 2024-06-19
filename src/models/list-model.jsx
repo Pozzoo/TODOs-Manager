@@ -6,6 +6,5 @@ export class ListModel {
     this.pending = pending;
     this.priority = priority;
     this.tasks = [];
-    this.setTasks = [];
   }
 }

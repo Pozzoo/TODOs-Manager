@@ -53,25 +53,25 @@ function App() {
         setLists(lists => {return lists.map(list => list.id === model.id ? {...list, title: title} : list)});
     }
 
-    const handleDragStart = (e, index) => {
-        dragItem.current = index;
+    const handleDragStart = (model) => {
+        dragItem.current = model;
     }
 
-    const handleDragOver = (e, index) => {
-        dragOverItem.current = index;
-    }
+    const handleDragOver = (model) => {
+        dragOverItem.current = model;
 
-    const handleDragOrder = () => {
         let _lists = [...lists];
 
-        const draggedItemContent = _lists.splice(dragItem.current, 1)[0];
+        const draggedItemContent = _lists.splice(lists.indexOf(dragItem.current), 1)[0];
+        _lists.splice(lists.indexOf(dragOverItem.current), 0, draggedItemContent);
 
-        _lists.splice(dragOverItem.current, 0, draggedItemContent);
-
-        dragItem.current = null;
         dragOverItem.current = null;
 
         setLists(_lists);
+    }
+
+    const handleDragEnd = () => {
+        dragItem.current = null;
     }
 
 
@@ -86,7 +86,7 @@ function App() {
                     handleTitleChange={handleTitleChange}
                     handleDragStart={handleDragStart}
                     handleDragOver={handleDragOver}
-                    handleDragEnd={() => handleDragOrder()}
+                    handleDragEnd={handleDragEnd}
                     />
                 }/>
                 <Route path="/list/:id" element={<List handleUpdate={handleUpdate} />} />
