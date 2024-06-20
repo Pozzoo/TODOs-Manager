@@ -8,4 +8,8 @@ export default defineConfig({
       react(),
       svgr(),
   ],
+  base: '/TODOs-Manager/',
+  build: {
+    outDir: 'dist',
+  },
 })
