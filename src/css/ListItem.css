@@ -1,8 +1,9 @@
 .list {
     border: 1px solid #F4FAEA;
     border-radius: 15px;
-    max-width: 800px;
-    min-width: 500px;
+    max-width: 600px;
+    min-width: 300px;
+    width: 85vw;
     max-height: 80px;
     min-height: 80px;
     margin-bottom: 15px;

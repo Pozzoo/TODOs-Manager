@@ -1,6 +1,7 @@
 .taskItem {
     max-width: 400px;
-    min-width: 400px;
+    min-width: 300px;
+    width: 85vw;
     border-bottom: 1px solid #656763;
     margin-bottom: 5px;
 }
