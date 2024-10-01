@@ -1,19 +1,32 @@
 import React from "react";
 import {TaskListModel} from "../models/tasklist-model.js";
-import {Link} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import "../css/TaskList.css"
 
 type TaskListProps = {
     listModel: TaskListModel
 }
 
 const TaskList: React.FC<TaskListProps> = props => {
+    const navigate = useNavigate();
+
+    const handleClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        navigate(`/${props.listModel.id}`);
+    }
 
     return (
-        <Link to={props.listModel.id}>
-            <div className="tasklist-container">
-                <h4>{props.listModel.title}</h4>
+        <div className="tasklist-container" onClick={(e) => handleClick(e)}>
+            <div className="tasklist-content-left">
+                <h3>{props.listModel.title}</h3>
+                <p>Completed: 0</p>
+                <p>Pending: 0</p>
             </div>
-        </Link>
+
+        </div>
+
     );
 };
 

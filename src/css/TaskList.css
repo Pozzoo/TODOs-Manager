@@ -1,0 +1,31 @@
+.tasklist-container {
+    width: 35%;
+
+    display: flex;
+    justify-content: space-between;
+
+    border: 1px solid #F4FAEA;
+    border-radius: 15px;
+
+    padding: 5px;
+    margin-bottom: 15px;
+
+    .tasklist-content-left {
+
+        margin-left: 5px;
+        margin-bottom: 5px;
+
+        h3 {
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 11px;
+            margin: 0;
+        }
+    }
+}
+
+.tasklist-container:hover {
+    cursor: pointer;
+}

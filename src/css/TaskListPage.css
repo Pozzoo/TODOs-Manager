@@ -1,0 +1,47 @@
+.tasklistpage-top {
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    .back-arrow {
+        float: left;
+        position: absolute;
+        margin-top: 20px;
+
+        img {
+            height: 36px;
+            width: 36px;
+        }
+    }
+
+    .title {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.tasks-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .add-button {
+        border: 1px solid #F4FAEA;
+        border-radius: 15px;
+
+        padding: 10px 20px;
+
+        background-color: #F4FAEA;
+        color: #12140F;
+
+        font-weight: bold;
+        font-family: 'JetBrains Mono', serif;
+        font-size: small;
+    }
+
+    button:hover {
+        cursor: pointer;
+    }
+}

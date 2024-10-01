@@ -1,0 +1,53 @@
+.new-task-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 40%;
+
+    border: 1px solid #F4FAEA;
+    border-radius: 15px;
+
+    padding: 5px;
+
+    input {
+        width: 80%;
+
+        font-family: 'JetBrains Mono', serif;
+        font-size: 15px;
+
+        border: 1px solid #8c9085;
+        border-radius: 10px;
+
+        margin: 10px 0;
+        padding: 5px;
+
+        background-color: transparent;
+        color: #F4FAEA;
+    }
+
+    button {
+        width: fit-content;
+    }
+
+
+    .new-task-container-left{
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: flex-start;
+
+        width: 49%;
+    }
+
+    .new-task-container-right{
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: flex-end;
+
+        width: 49%;
+    }
+}

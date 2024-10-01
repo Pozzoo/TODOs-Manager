@@ -1,0 +1,27 @@
+.tasklist-wrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.new-button {
+    border: 1px solid #F4FAEA;
+    border-radius: 15px;
+
+    padding: 10px 20px;
+
+    background-color: #F4FAEA;
+    color: #12140F;
+
+    font-weight: bold;
+    font-family: 'JetBrains Mono', serif;
+    font-size: small;
+}
+
+button:hover {
+    cursor: pointer;
+}

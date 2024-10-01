@@ -7,6 +7,7 @@ type ListRendererContextType = {
     addList: (list: TaskListModel) => void,
     removeList: (id: string) => void,
     getListById: (id: string) => TaskListModel | undefined,
+    createList: () => void,
 }
 
 const ListRendererContext = createContext<ListRendererContextType | undefined>(undefined)
@@ -16,13 +17,11 @@ type ListRenderProviderType = {
 }
 
 export const ListRenderProvider: React.FC<ListRenderProviderType> = ({ children }) => {
-    const [listOrder, setListOrder] = useState<TaskListModel[]>([]);
+    const [listOrder, setListOrder] = useState<TaskListModel[]>(JSON.parse(localStorage.getItem("lists")!));
 
     useEffect(() => {
-        const listsJson = JSON.parse(localStorage.getItem("lists")!);
-
-        setListOrder(listsJson);
-    }, []);
+        saveToLocalStorage();
+    }, [listOrder]);
 
     const setLists = (list: TaskListModel[]) => {
         setListOrder(list);
@@ -40,8 +39,23 @@ export const ListRenderProvider: React.FC<ListRenderProviderType> = ({ children 
         return listOrder.find(list => list.id === id);
     }
 
+    const createList = () => {
+        let id = "";
+
+        do {
+            id = (Math.random() + 1).toString(36).substring(2);
+        } while ((listOrder.find(list => list.id === id)) !== undefined);
+
+        const newList = new TaskListModel(id, `List ${listOrder.length + 1}`);
+        addList(newList);
+    }
+
+    const saveToLocalStorage = () => {
+        localStorage.setItem("lists", JSON.stringify(listOrder));
+    }
+
     return (
-        <ListRendererContext.Provider value={{ listOrder, addList, removeList, getListById, setLists }}>
+        <ListRendererContext.Provider value={{ listOrder, addList, removeList, getListById, setLists, createList }}>
             {children}
         </ListRendererContext.Provider>
     );

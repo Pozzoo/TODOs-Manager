@@ -17,7 +17,7 @@ const router = createBrowserRouter([
 
             //TODO: FOR TESTING. REMOVE AFTER
                 const task1 = new TaskModel("task1", "list1", "testTask1", "cool description", false, Date.now(), Date.now());
-                const task2 = new TaskModel("task2", "list1", "testTask2", "cool description", false, Date.now(), Date.now());
+                const task2 = new TaskModel("task2", "list1", "testTask2", "cool description", true, Date.now(), Date.now());
                 const task3 = new TaskModel("task3", "list1", "testTask3", "cool description", false, Date.now(), Date.now());
                 const task5 = new TaskModel("task5", "list2", "testTask5", "cool description", false, Date.now(), Date.now());
                 const task6 = new TaskModel("task6", "list2", "testTask6", "cool description", false, Date.now(), Date.now());
