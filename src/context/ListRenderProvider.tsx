@@ -1,5 +1,6 @@
 import React, {createContext, ReactNode, useEffect, useState} from "react";
 import {TaskListModel} from "../models/tasklist-model.tsx";
+import useTaskProvider from "../hooks/useTaskProvider.ts";
 
 type ListRendererContextType = {
     listOrder: TaskListModel[],
@@ -18,6 +19,7 @@ type ListRenderProviderType = {
 
 export const ListRenderProvider: React.FC<ListRenderProviderType> = ({ children }) => {
     const [listOrder, setListOrder] = useState<TaskListModel[]>(JSON.parse(localStorage.getItem("lists")!));
+    const {removeTask, getTasksByParentId} = useTaskProvider();
 
     useEffect(() => {
         saveToLocalStorage();
@@ -33,6 +35,12 @@ export const ListRenderProvider: React.FC<ListRenderProviderType> = ({ children 
 
     const removeList = (id: string) => {
         setListOrder(prevState => prevState.filter(list => list.id !== id));
+
+        const tasks = getTasksByParentId(id);
+
+        tasks.forEach(task => {
+            removeTask(task.id);
+        })
     }
 
     const getListById = (id: string) => {

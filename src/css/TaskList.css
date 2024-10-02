@@ -1,5 +1,22 @@
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}
+
+@-webkit-keyframes hide-slide {
+    100% { left: 100px; }
+}
+
+@keyframes hide-slide {
+    100% { left: 100px; }
+}
+
 .tasklist-container {
     width: 35%;
+    height: fit-content;
 
     display: flex;
     justify-content: space-between;
@@ -9,6 +26,8 @@
 
     padding: 5px;
     margin-bottom: 15px;
+
+    overflow: hidden;
 
     .tasklist-content-left {
 
@@ -23,6 +42,37 @@
             font-size: 11px;
             margin: 0;
         }
+    }
+
+    .tasklist-delete-area {
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin: -5px;
+
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+
+        background-color: red;
+        width: 86px;
+        height: 86px;
+    }
+
+    .hide-animation {
+        left: 0;
+
+        -webkit-animation: hide-slide 0.5s forwards;
+        animation: hide-slide 0.5s forwards;
+    }
+
+    .show-animation {
+        left: 100px;
+
+        -webkit-animation: slide 0.5s forwards;
+        animation: slide 0.5s forwards;
     }
 }
 

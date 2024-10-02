@@ -49,10 +49,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-      <ListRenderProvider>
-          <TaskRenderProvider>
+      <TaskRenderProvider>
+        <ListRenderProvider>
               <RouterProvider router={router} />
-          </TaskRenderProvider>
-      </ListRenderProvider>
+        </ListRenderProvider>
+      </TaskRenderProvider>
   </StrictMode>
 );
