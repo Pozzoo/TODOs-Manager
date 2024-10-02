@@ -46,6 +46,18 @@ const Task: React.FC<taskProps> = props => {
         editTask({...props.taskModel, name: name});
     }
 
+    const deadlineDate = new Date(props.taskModel.deadline).toLocaleString().split(',')[0];
+
+    const descriptionBlock =
+        <div className="task-description-area" style={{display: showDescription ? "flex" : "none"}}>
+            <p className="description">{props.taskModel.description}</p>
+            <div className="task-date-info">
+                <p>Created at: {new Date(props.taskModel.createdAt).toLocaleString().split(',')[0]}</p>
+                {deadlineDate !== "Invalid Date" ? <p>Due on: {deadlineDate}</p> : null}
+            </div>
+        </div>
+
+
     return (
         <div className="task-container">
             <img onClick={(event) => handleCheckmarkClick(event)} src={props.taskModel.completed ? circleChecked : circleNotChecked} alt={props.taskModel.completed ? "Completed" : "Pending"}/>
@@ -65,7 +77,7 @@ const Task: React.FC<taskProps> = props => {
                     }
                 </div>
 
-                <p style={{display: showDescription ? "block" : "none"}}>{props.taskModel.description}</p>
+                {descriptionBlock}
             </div>
         </div>
     );

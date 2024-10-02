@@ -40,6 +40,34 @@
             }
         }
 
+        .task-description-area {
+            .description {
+                width: 65% !important;
+                display: block;
+                float: right;
+                overflow-wrap: break-word;
+            }
+
+            .task-date-info {
+                width: 35%;
+                height: fit-content;
+
+                float: right;
+
+                border-left: 1px solid #F4FAEA;
+                border-bottom: 1px solid #F4FAEA;
+                border-bottom-left-radius: 15px;
+
+                margin: 16px 0;
+
+                p {
+                    font-size: 10px;
+                    margin-left: 10px;
+                    text-wrap: nowrap;
+                }
+            }
+        }
+
         input {
             width: 100%;
 

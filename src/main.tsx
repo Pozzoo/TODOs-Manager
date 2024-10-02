@@ -16,12 +16,12 @@ const router = createBrowserRouter([
           //return fetch(API LEGAL)
 
             //TODO: FOR TESTING. REMOVE AFTER
-                const task1 = new TaskModel("task1", "list1", "testTask1", "cool description", false, Date.now(), Date.now());
-                const task2 = new TaskModel("task2", "list1", "testTask2", "cool description", true, Date.now(), Date.now());
-                const task3 = new TaskModel("task3", "list1", "testTask3", "cool description", false, Date.now(), Date.now());
-                const task5 = new TaskModel("task5", "list2", "testTask5", "cool description", false, Date.now(), Date.now());
-                const task6 = new TaskModel("task6", "list2", "testTask6", "cool description", false, Date.now(), Date.now());
-                const task7 = new TaskModel("task7", "list2", "testTask7", "cool description", false, Date.now(), Date.now());
+                const task1 = new TaskModel("task1", "list1", "testTask1", "cool description", false, new Date("2024-09-18").toString(), new Date().toString());
+                const task2 = new TaskModel("task2", "list1", "testTask2", "cool description", true, new Date("2024-09-18").toString(), new Date().toString());
+                const task3 = new TaskModel("task3", "list1", "testTask3", "cool description", false, new Date("2024-09-18").toString(), new Date().toString());
+                const task5 = new TaskModel("task5", "list2", "testTask5", "cool description", false, new Date("2024-09-18").toString(), new Date().toString());
+                const task6 = new TaskModel("task6", "list2", "testTask6", "cool description", false, new Date("2024-09-18").toString(), new Date().toString());
+                const task7 = new TaskModel("task7", "list2", "testTask7", "cool description", false, new Date("2024-09-18").toString(), new Date().toString());
 
                 const tasks = [task1, task2, task3, task5, task6, task7];
 

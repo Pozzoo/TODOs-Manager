@@ -7,7 +7,7 @@ type TaskRendererContextType = {
     removeTask: (id: string) => void,
     editTask: (task: TaskModel) => void,
     getTasksByParentId: (id: string) => TaskModel[],
-    createTask: (parentId: string, name: string, description: string, deadline: number) => void,
+    createTask: (parentId: string, name: string, description: string, deadline: string) => void,
 }
 
 const TaskRendererContext = createContext<TaskRendererContextType | undefined>(undefined)
@@ -47,14 +47,14 @@ export const TaskRenderProvider: React.FC<ListRenderProviderType> = ({ children 
     }
 
 
-    const createTask = (parentId: string, name: string, description: string, deadline: number) => {
+    const createTask = (parentId: string, name: string, description: string, deadline: string) => {
         let id = "";
 
         do {
             id = (Math.random() + 1).toString(36).substring(2);
         } while ((taskOrder.find(task => task.id === id)) !== undefined);
 
-        const newTask = new TaskModel(id, parentId, name, description, false, Date.now(), deadline);
+        const newTask = new TaskModel(id, parentId, name, description, false, new Date().toString(), deadline);
         addTask(newTask);
     }
 
