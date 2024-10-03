@@ -12,7 +12,10 @@ type TaskListProps = {
 const TaskList: React.FC<TaskListProps> = props => {
     const [isRightClicked, setRightClicked] = useState<boolean>(false);
     const [deleteClass, setDeleteClass] = useState<string>("tasklist-delete-area show-animation");
-    const {removeList} = useListProvider();
+    const [isEditing, setEditing] = useState<boolean>(false);
+    const [editedTitle, setEditedTitle] = useState<string>(props.listModel.title);
+
+    const {removeList, editList} = useListProvider();
     const navigate = useNavigate();
 
     const handleClick = (e: React.MouseEvent) => {
@@ -30,6 +33,7 @@ const TaskList: React.FC<TaskListProps> = props => {
             setDeleteClass("tasklist-delete-area hide-animation");
 
             setTimeout(() => setRightClicked(false), 500);
+            setEditing(false);
             return;
         }
 
@@ -44,6 +48,32 @@ const TaskList: React.FC<TaskListProps> = props => {
         removeList(props.listModel.id);
     }
 
+    const handleRenameClick = (e: React.MouseEvent) => {
+        if (!isRightClicked) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        setEditing(true);
+    }
+
+    const handleInputChange = (e: React.ChangeEvent) => {
+        const target = e.target as typeof e.target & {
+            value: string;
+        };
+
+        setEditedTitle(target.value);
+    }
+
+    const handleSave = () => {
+        if (!isEditing) return;
+
+        setEditing(false);
+        if (editedTitle === props.listModel.title) return;
+
+        editList({...props.listModel, title: editedTitle});
+    }
+
     const tasklistDeleteArea =
         <div className={deleteClass} onClick={(e) => handleDeleteClick(e)}>
             <button className="button-transparent">
@@ -54,14 +84,17 @@ const TaskList: React.FC<TaskListProps> = props => {
     return (
         <div className="tasklist-container" onClick={(e) => handleClick(e)} onContextMenu={(e) => handleRightClick(e)}>
             <div className="tasklist-content-left">
-                <h3>{props.listModel.title}</h3>
+                {isEditing ?
+                    <input type="text" className="input-transparent" value={editedTitle} onChange={(e) => handleInputChange(e)} onBlur={handleSave} autoFocus />
+                    :
+                    <h3 onClick={(e) => handleRenameClick(e)}>{editedTitle}</h3>
+                }
                 <p>Completed: 0</p>
                 <p>Pending: 0</p>
             </div>
 
             {isRightClicked ? tasklistDeleteArea : null}
         </div>
-
     );
 };
 

@@ -38,6 +38,11 @@
             img:hover {
                 cursor: pointer;
             }
+
+            input {
+                margin: 21px 0;
+                font-size: 16px;
+            }
         }
 
         .task-description-area {
@@ -66,21 +71,6 @@
                     text-wrap: nowrap;
                 }
             }
-        }
-
-        input {
-            width: 100%;
-
-            font-family: 'JetBrains Mono', serif;
-            font-size: 17px;
-            font-weight: bold;
-
-            border: 0;
-            outline: 0;
-            margin: 21px 0;
-
-            background-color: transparent;
-            color: #F4FAEA;
         }
     }
 }

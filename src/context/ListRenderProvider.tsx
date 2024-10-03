@@ -9,6 +9,7 @@ type ListRendererContextType = {
     removeList: (id: string) => void,
     getListById: (id: string) => TaskListModel | undefined,
     createList: () => void,
+    editList: (list: TaskListModel) => void,
 }
 
 const ListRendererContext = createContext<ListRendererContextType | undefined>(undefined)
@@ -58,12 +59,23 @@ export const ListRenderProvider: React.FC<ListRenderProviderType> = ({ children 
         addList(newList);
     }
 
+    const editList = (list: TaskListModel) => {
+        setListOrder(prevState => {
+            const listIndex = prevState.findIndex(oldList => oldList.id === list.id);
+
+            const updatedRenderOrder = [...prevState];
+
+            updatedRenderOrder.splice(listIndex, 1, list);
+            return updatedRenderOrder;
+        });
+    }
+
     const saveToLocalStorage = () => {
         localStorage.setItem("lists", JSON.stringify(listOrder));
     }
 
     return (
-        <ListRendererContext.Provider value={{ listOrder, addList, removeList, getListById, setLists, createList }}>
+        <ListRendererContext.Provider value={{ listOrder, addList, removeList, getListById, setLists, createList, editList }}>
             {children}
         </ListRendererContext.Provider>
     );

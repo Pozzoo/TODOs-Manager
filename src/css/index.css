@@ -11,6 +11,14 @@
         text-decoration: none;
     }
 
+    h3 {
+        font-size: 19px;
+    }
+
+    h4 {
+        font-size: 16px;
+    }
+
     .button-normal-style {
         border: 1px solid #F4FAEA;
         border-radius: 15px;
@@ -33,5 +41,21 @@
         height: fit-content;
 
         padding: 0;
+    }
+
+    .input-transparent {
+        width: 100%;
+
+        font-family: 'JetBrains Mono', serif;
+        font-size: 17px;
+        font-weight: bold;
+
+        padding: 0;
+
+        border: 0;
+        outline: 0;
+
+        background-color: transparent;
+        color: #F4FAEA;
     }
 }

@@ -4,7 +4,7 @@ import './css/index.css'
 import {ListRenderProvider} from "./context/ListRenderProvider.tsx";
 import App from "./App.tsx";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import TaskListPage from "./pages/TaskListPage.tsx";
+import TasksPage from "./pages/TasksPage.tsx";
 import {TaskListModel} from "./models/tasklist-model.tsx";
 import {TaskModel} from "./models/task-model.tsx";
 import {TaskRenderProvider} from "./context/TaskRenderProvider.tsx";
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         loader: ({params}) => {
             return params.listId!;
         },
-        element: <TaskListPage/>
+        element: <TasksPage/>
     }
 ]);
 

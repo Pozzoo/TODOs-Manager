@@ -4,11 +4,11 @@ import useTaskProvider from "../hooks/useTaskProvider.ts";
 import Task from "../components/Task.tsx";
 import {TaskModel} from "../models/task-model.tsx";
 import arrowLeft from "../assets/arrow-left-stroke-rounded.svg";
-import "../css/TaskListPage.css"
+import "../css/TasksPage.css"
 import useListProvider from "../hooks/useListProvider.ts";
 import NewTask from "../components/NewTask.tsx";
 
-const TaskListPage: React.FC = () => {
+const TasksPage: React.FC = () => {
     const [newTaskClicked, setNewTaskClicked] = useState<boolean>(false);
 
     const {getTasksByParentId} = useTaskProvider();
@@ -46,4 +46,4 @@ const TaskListPage: React.FC = () => {
     );
 };
 
-export default TaskListPage;
+export default TasksPage;

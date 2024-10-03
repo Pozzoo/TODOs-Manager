@@ -65,7 +65,7 @@ const Task: React.FC<taskProps> = props => {
             <div className="task-content">
                 <div className="task-title-area">
                     {editing ?
-                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} onBlur={handleBlur}
+                        <input type="text" value={name} className="input-transparent" onChange={(e) => setName(e.target.value)} onBlur={handleBlur}
                                autoFocus/>
                         : <h4 onContextMenu={(event) => handleRightClick(event)}>{props.taskModel.name}</h4>
                     }

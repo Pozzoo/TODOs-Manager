@@ -42,6 +42,11 @@
             font-size: 11px;
             margin: 0;
         }
+
+        input {
+            margin-bottom: 19px;
+            font-size: 19px;
+        }
     }
 
     .tasklist-delete-area {
@@ -56,7 +61,7 @@
         border-bottom-left-radius: 15px;
         border-top-left-radius: 15px;
 
-        background-color: red;
+        background-color: #c61515;
         width: 86px;
         height: 86px;
     }
